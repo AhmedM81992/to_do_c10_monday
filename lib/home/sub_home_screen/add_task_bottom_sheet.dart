@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_c10_monday/my_theme.dart';
+import 'package:to_do_c10_monday/providers/add_task_bottom_sheet_provider.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   AddTaskBottomSheet({super.key});
@@ -10,11 +12,12 @@ class AddTaskBottomSheet extends StatefulWidget {
 }
 
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
-  DateTime chosenDate = DateTime.now();
+  //DateTime chosenDate = DateTime.now(); add in provider
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AddTaskBottomSheetProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -64,10 +67,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           const SizedBox(height: 12),
           InkWell(
             onTap: () {
-              selectDate(context);
+              provider.selectDate(context);
             },
             child: Text(
-              "${chosenDate.toString().substring(0, 10)}",
+              "${provider.chosenDate.toString().substring(0, 10)}",
               textAlign: TextAlign.start,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
             ),
@@ -95,26 +98,26 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
     );
   }
 
-  selectDate(BuildContext context) async {
-    DateTime? selectedDate = await showDatePicker(
-      context: context,
-      initialDate: chosenDate,
-      firstDate: DateTime.now(),
-      lastDate: DateTime.now().add(
-        Duration(days: 360),
-      ),
-      builder: (context, child) {
-        return Theme(
-            data: Theme.of(context).copyWith(
-                colorScheme:
-                    ColorScheme.light(primary: MyThemeData.primaryColor)),
-            child: child!);
-      },
-      //barrierColor: MyThemeData.primaryColor
-    );
-    if (selectedDate != null) {
-      chosenDate = selectedDate!;
-      setState(() {});
-    }
-  }
+  // selectDate(BuildContext context) async {
+  //   DateTime? selectedDate = await showDatePicker(
+  //     context: context,
+  //     initialDate: chosenDate,
+  //     firstDate: DateTime.now(),
+  //     lastDate: DateTime.now().add(
+  //       Duration(days: 360),
+  //     ),
+  //     builder: (context, child) {
+  //       return Theme(
+  //           data: Theme.of(context).copyWith(
+  //               colorScheme:
+  //                   ColorScheme.light(primary: MyThemeData.primaryColor)),
+  //           child: child!);
+  //     },
+  //     //barrierColor: MyThemeData.primaryColor
+  //   );
+  //   if (selectedDate != null) {
+  //     chosenDate = selectedDate!;
+  //     setState(() {});
+  //   }
+  // } //add in provider
 }

@@ -1,6 +1,6 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_c10_monday/home/tabs/sub_tasks_tab/my_list_view.dart';
+import 'package:to_do_c10_monday/home/tabs/sub_elements_in_tasks_tab/my_list_view.dart';
 import 'package:to_do_c10_monday/my_theme.dart';
 
 class TasksTab extends StatefulWidget {

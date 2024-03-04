@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_c10_monday/home/home_screen.dart';
 import 'package:to_do_c10_monday/my_theme.dart';
+import 'package:to_do_c10_monday/providers/add_task_bottom_sheet_provider.dart';
 import 'package:to_do_c10_monday/providers/home_screen_provider.dart';
 import 'package:to_do_c10_monday/providers/main_provider.dart';
 
@@ -12,6 +13,8 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => MainProvider()),
         ChangeNotifierProvider(create: (context) => HomeScreenProvider()),
+        ChangeNotifierProvider(
+            create: (context) => AddTaskBottomSheetProvider()),
       ],
       child: const MyApp(),
     ),
