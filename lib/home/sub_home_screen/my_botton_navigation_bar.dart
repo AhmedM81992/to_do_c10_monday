@@ -17,7 +17,7 @@ class MyBottonNavigationBar extends StatelessWidget {
           provider.changeIndex(value);
         },
         currentIndex: provider.index,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.task), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
         ],

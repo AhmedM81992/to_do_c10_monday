@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true, //To make List appear behind the button.
       appBar: AppBar(
-        title: Text("To Do List"),
+        title: const Text("To Do List"),
       ),
       body: provider.tabs[provider.index],
       bottomNavigationBar: MyBottonNavigationBar(),
