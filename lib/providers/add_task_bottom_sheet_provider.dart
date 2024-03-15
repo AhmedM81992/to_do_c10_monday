@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_c10_monday/my_theme.dart';
+import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 
 class AddTaskBottomSheetProvider extends ChangeNotifier {
-  DateTime chosenDate = DateTime.now();
+  //DateTime chosenDate = DateTime.now(); replaced by provider
 
   selectDate(BuildContext context) async {
+    var provider = Provider.of<SelectedDateProvider>(context);
     DateTime? selectedDate = await showDatePicker(
       context: context,
-      initialDate: chosenDate,
+      initialDate: provider.selectedDate,
       firstDate: DateTime.now(),
       lastDate: DateTime.now().add(
         const Duration(days: 360),
@@ -22,7 +25,7 @@ class AddTaskBottomSheetProvider extends ChangeNotifier {
       //barrierColor: MyThemeData.primaryColor
     );
     if (selectedDate != null) {
-      chosenDate = selectedDate!;
+      provider.selectedDate = selectedDate!;
       notifyListeners();
     }
   }

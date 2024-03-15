@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:to_do_c10_monday/firebase/firebase_function.dart';
+import 'package:to_do_c10_monday/models/task_model.dart';
 import 'package:to_do_c10_monday/my_theme.dart';
 import 'package:to_do_c10_monday/providers/add_task_bottom_sheet_provider.dart';
+import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   AddTaskBottomSheet({super.key});
@@ -18,6 +21,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AddTaskBottomSheetProvider>(context);
+    var provider2 = Provider.of<SelectedDateProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -70,7 +74,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               provider.selectDate(context);
             },
             child: Text(
-              "${provider.chosenDate.toString().substring(0, 10)}",
+              "${provider2.selectedDate.toString().substring(0, 10)}",
               textAlign: TextAlign.start,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
             ),
@@ -81,7 +85,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                TaskModel model = TaskModel(
+                    title: titleController.text,
+                    description: descriptionController.text,
+                    date: provider2.selectedDate.millisecondsSinceEpoch);
+                FireBaseFunctions.addTask(model).then((value) {
+                  Navigator.pop(context); //to remove the pop screen when done.
+                });
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: MyThemeData.primaryColor),
               child: const Text(
