@@ -7,7 +7,7 @@ class AddTaskBottomSheetProvider extends ChangeNotifier {
   //DateTime chosenDate = DateTime.now(); replaced by provider
 
   selectDate(BuildContext context) async {
-    var provider = Provider.of<SelectedDateProvider>(context);
+    var provider = Provider.of<SelectedDateProvider>(context, listen: false);
     DateTime? selectedDate = await showDatePicker(
       context: context,
       initialDate: provider.selectedDate,
