@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:to_do_c10_monday/models/task_model.dart';
 
 class FireBaseFunctions {
@@ -30,8 +31,14 @@ class FireBaseFunctions {
     // collection.get(); or
     //return getTaskCollection().get();
     return getTaskCollection()
-        .where("date", isEqualTo: date.millisecondsSinceEpoch)
+        .where("date",
+            isEqualTo: DateUtils.dateOnly(date)
+                .millisecondsSinceEpoch) //date.Only for only getting thadate without the time
         .snapshots();
+  }
+
+  static deleteTask(String id) {
+    getTaskCollection().doc(id).delete();
   }
 }
 //withConverter is the median/middle man between map and model.

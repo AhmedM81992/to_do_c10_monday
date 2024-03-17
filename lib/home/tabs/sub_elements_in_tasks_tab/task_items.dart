@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
+import 'package:to_do_c10_monday/firebase/firebase_function.dart';
 import 'package:to_do_c10_monday/models/task_model.dart';
 import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 import '../../../my_theme.dart';
@@ -21,7 +22,9 @@ class TaskItem extends StatelessWidget {
         startActionPane:
             ActionPane(motion: DrawerMotion(), extentRatio: .5, children: [
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              FireBaseFunctions.deleteTask(taskModel.id ?? "");
+            },
             backgroundColor: MyThemeData.redColor,
             icon: Icons.delete,
             label: "Delete",

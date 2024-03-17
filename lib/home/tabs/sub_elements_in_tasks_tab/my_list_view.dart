@@ -33,7 +33,7 @@ class MyListView extends StatelessWidget {
           }
           var tasks = snapshot.data?.docs.map((e) => e.data()).toList() ?? [];
           if (tasks.isEmpty) {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: Text("No Tasks Asigned"));
           }
           return ListView.separated(
             separatorBuilder: (context, index) => SizedBox(height: 12),

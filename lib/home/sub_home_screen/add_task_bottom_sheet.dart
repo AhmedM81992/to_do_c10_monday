@@ -90,10 +90,19 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 TaskModel model = TaskModel(
                     title: titleController.text,
                     description: descriptionController.text,
-                    date: provider2.selectedDate.millisecondsSinceEpoch);
-                FireBaseFunctions.addTask(model).then((value) {
-                  Navigator.pop(context); //to remove the pop screen when done.
-                });
+                    date: DateUtils.dateOnly(provider2.selectedDate)
+                        .millisecondsSinceEpoch);
+                // FireBaseFunctions.addTask(model).then((value) {
+                //   Navigator.pop(
+                //       context); //to remove the pop screen when done.NOTE: works only when await FirebaseFirestore.instance.enableNetwork() is enabled in main.dart
+                // });
+                FireBaseFunctions.addTask(
+                    model); //We removed .then to make the popup work online and offline.
+                Navigator.pop(context);
+                //We changed it to this in order to store data locally on the phone
+                //But by doing that data well never get to be stored on Cloud FireStore
+                //Note: This works with await FirebaseFirestore.instance.disableNetwork()
+                //And await FirebaseFirestore.instance.enableNetwork().
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: MyThemeData.primaryColor),

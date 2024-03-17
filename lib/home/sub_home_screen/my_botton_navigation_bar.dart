@@ -9,9 +9,10 @@ class MyBottonNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<HomeScreenProvider>(context);
     return BottomAppBar(
+      padding: EdgeInsets.zero,
       shape: CircularNotchedRectangle(),
       notchMargin: 12,
-      height: 83,
+      height: 59,
       child: BottomNavigationBar(
         onTap: (value) {
           provider.changeIndex(value);
