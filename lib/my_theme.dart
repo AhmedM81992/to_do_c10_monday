@@ -14,7 +14,7 @@ class MyThemeData {
   static ThemeData lightTheme = ThemeData(
     textTheme: TextTheme(
       bodyLarge: GoogleFonts.poppins(
-          fontSize: 22, fontWeight: FontWeight.w700, color: Colors.red),
+          fontSize: 22, fontWeight: FontWeight.w700, color: Colors.black),
       bodyMedium:
           GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700),
       bodySmall: GoogleFonts.roboto(fontSize: 15, fontWeight: FontWeight.w700),
