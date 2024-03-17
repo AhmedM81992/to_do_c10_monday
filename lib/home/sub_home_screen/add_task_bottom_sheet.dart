@@ -19,8 +19,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   var descriptionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<AddTaskBottomSheetProvider>(context);
-    var provider2 = Provider.of<SelectedDateProvider>(context);
+    var provider =
+        Provider.of<AddTaskBottomSheetProvider>(context, listen: false);
+    var provider2 = Provider.of<SelectedDateProvider>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
