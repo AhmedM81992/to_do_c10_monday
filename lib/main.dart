@@ -17,7 +17,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await FirebaseFirestore.instance.disableNetwork();
+  //await FirebaseFirestore.instance.disableNetwork();
+  await FirebaseFirestore.instance.enableNetwork();
   runApp(
     MultiProvider(
       providers: [

@@ -96,8 +96,8 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 //   Navigator.pop(
                 //       context); //to remove the pop screen when done.NOTE: works only when await FirebaseFirestore.instance.enableNetwork() is enabled in main.dart
                 // });
-                FireBaseFunctions.addTask(
-                    model); //We removed .then to make the popup work online and offline.
+                FireBaseFunctions.addTask(model);
+                //We removed .then to make the popup work online and offline.
                 Navigator.pop(context);
                 //We changed it to this in order to store data locally on the phone
                 //But by doing that data well never get to be stored on Cloud FireStore

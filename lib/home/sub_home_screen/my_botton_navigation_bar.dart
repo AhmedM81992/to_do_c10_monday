@@ -14,12 +14,13 @@ class MyBottonNavigationBar extends StatelessWidget {
       notchMargin: 12,
       height: 59,
       child: BottomNavigationBar(
+        iconSize: 23,
         onTap: (value) {
           provider.changeIndex(value);
         },
         currentIndex: provider.index,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.task), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.list_rounded), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
         ],
       ),

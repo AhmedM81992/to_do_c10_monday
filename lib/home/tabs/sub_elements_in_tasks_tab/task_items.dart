@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_c10_monday/firebase/firebase_function.dart';
+import 'package:to_do_c10_monday/home/tabs/sub_elements_in_tasks_tab/edit_task.dart';
 import 'package:to_do_c10_monday/models/task_model.dart';
 import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 import '../../../my_theme.dart';
@@ -34,7 +35,14 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => EditTask(
+                            taskModel: taskModel,
+                          )));
+            },
             backgroundColor: MyThemeData.primaryColor,
             icon: Icons.edit,
             label: "Edit",
@@ -48,7 +56,9 @@ class TaskItem extends StatelessWidget {
                 height: 80,
                 width: 12,
                 decoration: BoxDecoration(
-                    color: MyThemeData.primaryColor,
+                    color: taskModel.isDone!
+                        ? Colors.green
+                        : MyThemeData.primaryColor,
                     borderRadius: BorderRadius.circular(20)),
               ),
               SizedBox(width: 12),
@@ -67,15 +77,28 @@ class TaskItem extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 12),
-                decoration: BoxDecoration(
-                    color: MyThemeData.primaryColor,
-                    borderRadius: BorderRadius.circular(12)),
-                child: Icon(
-                  Icons.done,
-                  color: MyThemeData.whiteColor,
-                  size: 30,
+              InkWell(
+                onTap: () {
+                  taskModel.isDone = true;
+                  FireBaseFunctions.updateTask(taskModel);
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 12),
+                  decoration: BoxDecoration(
+                      color: taskModel.isDone!
+                          ? Colors.green
+                          : MyThemeData.primaryColor,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: taskModel.isDone!
+                      ? Text(
+                          "Done!",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      : Icon(
+                          Icons.done,
+                          color: MyThemeData.whiteColor,
+                          size: 30,
+                        ),
                 ),
               ),
             ],

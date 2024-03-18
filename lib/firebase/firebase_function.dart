@@ -19,7 +19,7 @@ class FireBaseFunctions {
     var docRef = collection.doc();
     model.id = docRef.id;
     return docRef.set(model);
-    //we leave it empty to make the ID creation automated.Add "manual id" to add ID manually.
+    //we leave collection.doc(); empty to make the ID creation automated.Add "manual id" to add ID manually.
     //collection.add(taskModel);
     //collection.get();
     //collection.doc("").delete();
@@ -39,6 +39,10 @@ class FireBaseFunctions {
 
   static deleteTask(String id) {
     getTaskCollection().doc(id).delete();
+  }
+
+  static Future<void> updateTask(TaskModel model) {
+    return getTaskCollection().doc(model.id).update(model.toJson());
   }
 }
 //withConverter is the median/middle man between map and model.
