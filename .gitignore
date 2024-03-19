@@ -9,6 +9,13 @@
 .history
 .svn/
 migrate_working_dir/
+# .gitignore
+
+# ... existing content ...
+
+# Ignore .env file
+keys.env
+
 
 # IntelliJ related
 *.iml
