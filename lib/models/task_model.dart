@@ -1,9 +1,11 @@
 class TaskModel {
+  static const String collectionName = "Tasks";
   String? id;
   String? title;
   String? description;
   int? date;
   bool? isDone;
+  String userId;
 
   //When dealing with database add '?' is a must to avoid red screen on app when database go down.
 
@@ -12,6 +14,7 @@ class TaskModel {
       required this.title,
       required this.description,
       required this.date,
+      required this.userId,
       this.isDone = false});
 
   TaskModel.fromJson(Map<String, dynamic> json)
@@ -23,6 +26,7 @@ class TaskModel {
           date: json['date'],
           id: json['id'],
           isDone: json['isDone'],
+          userId: json['userId'],
         );
 
   Map<String, dynamic> toJson() {
@@ -33,6 +37,7 @@ class TaskModel {
       "date": date,
       "id": id,
       "isDone": isDone,
+      "userId": userId,
     };
   }
 }

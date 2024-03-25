@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:to_do_c10_monday/firebase/firebase_function.dart';
 import 'package:to_do_c10_monday/home/tabs/sub_elements_in_tasks_tab/edit_task.dart';
 import 'package:to_do_c10_monday/models/task_model.dart';
+import 'package:to_do_c10_monday/providers/my_provider.dart';
 import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 import '../../../my_theme.dart';
 
@@ -13,11 +14,18 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<SelectedDateProvider>(context);
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double dynamicHeight = screenHeight * 0.1;
+    double dynamicWidth = screenWidth * 0.1;
+
+    var provider = Provider.of<MyProvider>(context);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-          color: MyThemeData.whiteColor,
+          color: provider.themeMode == ThemeMode.light
+              ? MyThemeData.whiteColor
+              : MyThemeData.anotherBlack,
           borderRadius: BorderRadius.circular(18)),
       child: Slidable(
         startActionPane:
@@ -53,7 +61,7 @@ class TaskItem extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                height: 80,
+                height: dynamicHeight,
                 width: 12,
                 decoration: BoxDecoration(
                     color: taskModel.isDone!
@@ -61,7 +69,7 @@ class TaskItem extends StatelessWidget {
                         : MyThemeData.primaryColor,
                     borderRadius: BorderRadius.circular(20)),
               ),
-              SizedBox(width: 12),
+              SizedBox(width: dynamicWidth * 0.15),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

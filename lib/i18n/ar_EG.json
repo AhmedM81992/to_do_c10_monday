@@ -1,0 +1,20 @@
+{
+  "Hello!": "مرحبًا، %s",
+  "Sign-In": "تسجيل الدخول",
+  "Sign-Up": "سجل",
+  "LogIn": "تسجيل الدخول",
+  "Log-In": "تسجيل الدخول",
+  "Registration": "التسجيل",
+  "Confirm-Registration": "تأكيد التسجيل",
+  "Done": "تم!",
+  "Language": "اللغة",
+  "Mode": "الوضع",
+  "Add-New-Task": "إضافة مهمة جديدة",
+  "Select-Time": "اختر الوقت",
+  "Title": "العنوان",
+  "Description": "الوصف",
+  "Edit": "تحرير",
+  "Delete": "حذف",
+  "Save-Changes": "حفظ التغييرات",
+  "Edit-Your-Task": "تحرير المهمة الخاصة بك"
+}

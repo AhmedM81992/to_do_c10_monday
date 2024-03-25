@@ -14,6 +14,8 @@ class MyListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double dynamicHeight = screenHeight * 0.115;
     var provider = Provider.of<SelectedDateProvider>(context);
     return Expanded(
       child: StreamBuilder<QuerySnapshot<TaskModel>>(
@@ -26,7 +28,7 @@ class MyListView extends StatelessWidget {
           if (snapshot.hasError) {
             return Column(
               children: [
-                Text("Somthing went wrong"),
+                Text("Something went wrong"),
                 ElevatedButton(onPressed: () {}, child: Text("TryAgain")),
               ],
             );
