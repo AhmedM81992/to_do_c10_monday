@@ -8,8 +8,10 @@ class MyThemeData {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color greenColor = Color(0xFF61E757);
   static const Color backgroundColor = Color(0xFFDFECDB);
+  static const Color backgroundColorDark = Color(0xFF060E1E);
   static const Color greyColor = Color(0xFFC8C9CB);
-  static const Color redColor = Color(0xffaf000f);
+  static const Color redColor = Color(0xFFaf000f);
+  static const Color anotherBlack = Color(0xFF141922);
 
   static ThemeData lightTheme = ThemeData(
     textTheme: TextTheme(
@@ -34,5 +36,29 @@ class MyThemeData {
         elevation: 0,
         backgroundColor: Colors.transparent),
   );
-  static ThemeData darkTheme = ThemeData();
+  static ThemeData darkTheme = ThemeData(
+    textTheme: TextTheme(
+      bodyLarge: GoogleFonts.poppins(
+          fontSize: 22,
+          fontWeight: FontWeight.w700,
+          color: MyThemeData.whiteColor),
+      bodyMedium:
+          GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700),
+      bodySmall: GoogleFonts.roboto(fontSize: 15, fontWeight: FontWeight.w700),
+    ),
+    brightness: Brightness.dark,
+    scaffoldBackgroundColor: backgroundColorDark,
+    appBarTheme: AppBarTheme(
+      backgroundColor: primaryColor,
+      titleTextStyle: GoogleFonts.poppins(
+          fontSize: 22, fontWeight: FontWeight.w700, color: blackColor),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: MyThemeData.primaryColor,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        unselectedItemColor: MyThemeData.whiteColor,
+        elevation: 0,
+        backgroundColor: Colors.transparent),
+  );
 }

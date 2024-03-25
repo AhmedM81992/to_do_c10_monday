@@ -44,6 +44,10 @@ dependencies:
   cloud_firestore: ^4.14.0
   firebase_auth: ^4.17.9
   flutter_dotenv: ^5.1.0
+  encrypt: ^5.0.3
+  flutter_localizations:
+    sdk: flutter
+  localization: ^2.1.1
 
 
 
@@ -63,6 +67,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -75,6 +80,7 @@ flutter:
     - assets/images/back_ground/dark/
     - assets/images/elements/splash/
     - keys.env
+    - lib/i18n/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

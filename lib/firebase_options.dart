@@ -52,22 +52,22 @@ class DefaultFirebaseOptions {
 
   static FirebaseOptions get android {
     return FirebaseOptions(
-      apiKey: DotEnv().env['FIREBASE_API_KEY_ANDROID'] ?? '',
-      appId: DotEnv().env['FIREBASE_APP_ID'] ?? '',
-      messagingSenderId: DotEnv().env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
-      projectId: DotEnv().env['FIREBASE_PROJECT_ID'] ?? '',
-      storageBucket: DotEnv().env['FIREBASE_STORAGE_BUCKET'] ?? '',
+      apiKey: dotenv.env['FIREBASE_API_KEY_ANDROID'] ?? '',
+      appId: dotenv.env['FIREBASE_APP_ID'] ?? '',
+      messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+      projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+      storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
     );
   }
 
   static FirebaseOptions get ios {
     return FirebaseOptions(
-      apiKey: 'AIzaSyA4BtS54I2AiPnPnIEC7oGAhPKp2BG3FcE',
-      appId: '1:866719774790:ios:d7f171d24b7c870528f247',
-      messagingSenderId: '866719774790',
-      projectId: 'todo-c10-monday-a196e',
-      storageBucket: 'todo-c10-monday-a196e.appspot.com',
-      iosBundleId: 'com.example.toDoC10Monday',
+      apiKey: dotenv.env['FIREBASE_API_KEY_IOS'] ?? '',
+      appId: dotenv.env['FIREBASE_APP_ID_IOS'] ?? '',
+      messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+      projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+      storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
+      iosBundleId: dotenv.env['IOS_BUNDLE_ID'] ?? '',
     );
   }
 }

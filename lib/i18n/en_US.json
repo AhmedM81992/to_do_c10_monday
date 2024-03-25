@@ -1,0 +1,20 @@
+{ "Hello!":"Welcome, %s",
+  "Sign-In": "Sign In",
+  "Sign-Up": "Sign Up",
+  "LogIn": "LogIn",
+  "Log-In": "Log In",
+  "Registration": "Registration",
+  "Confirm-Registration": "Confirm Registration",
+  "Done": "Done!",
+  "Language": "Language",
+  "Mode": "Mode",
+  "Add-New-Task":"Add New Task",
+  "Select-Time":"Select-Time",
+  "Title": "Title",
+  "Description": "Description",
+  "Edit": "Edit",
+  "Delete": "Delete",
+  "Save-Changes": "Save Changes",
+  "Edit-Your-Task": "Edit Your Task"
+
+}
