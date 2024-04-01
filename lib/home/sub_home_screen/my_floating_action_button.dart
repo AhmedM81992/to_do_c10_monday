@@ -17,15 +17,15 @@ class MyFloatingActionButton extends StatelessWidget {
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
                   //we added this padding to make BottomSheet appear Above the keyboard.
-                  child: AddTaskBottomSheet());
+                  child: const AddTaskBottomSheet());
             });
       },
       backgroundColor: MyThemeData.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
-        side: BorderSide(width: 4, color: MyThemeData.whiteColor),
+        side: const BorderSide(width: 4, color: MyThemeData.whiteColor),
       ),
-      child: Icon(
+      child: const Icon(
         Icons.add,
         color: MyThemeData.whiteColor,
       ),

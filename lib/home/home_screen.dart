@@ -17,9 +17,9 @@ class HomeScreen extends StatelessWidget {
         title: const Text("To Do List"),
       ),
       body: provider.tabs[provider.index],
-      bottomNavigationBar: MyBottonNavigationBar(),
+      bottomNavigationBar: const MyBottonNavigationBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: MyFloatingActionButton(),
+      floatingActionButton: const MyFloatingActionButton(),
     );
   }
 }

@@ -25,7 +25,7 @@ class AddTaskBottomSheetProvider extends ChangeNotifier {
       //barrierColor: MyThemeData.primaryColor
     );
     if (selectedDate != null) {
-      provider.selectedDate = selectedDate!;
+      provider.selectedDate = selectedDate;
       notifyListeners();
     }
   }

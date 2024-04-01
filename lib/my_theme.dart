@@ -26,7 +26,7 @@ class MyThemeData {
       titleTextStyle: GoogleFonts.poppins(
           fontSize: 22, fontWeight: FontWeight.w700, color: whiteColor),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: MyThemeData.primaryColor,
         showSelectedLabels: false,
         showUnselectedLabels: false,

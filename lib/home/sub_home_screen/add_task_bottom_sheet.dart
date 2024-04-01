@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_c10_monday/firebase/firebase_function.dart';
 import 'package:to_do_c10_monday/models/task_model.dart';
@@ -8,7 +7,7 @@ import 'package:to_do_c10_monday/providers/add_task_bottom_sheet_provider.dart';
 import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
-  AddTaskBottomSheet({super.key});
+  const AddTaskBottomSheet({super.key});
 
   @override
   State<AddTaskBottomSheet> createState() => _AddTaskBottomSheetState();
@@ -74,9 +73,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               provider.selectDate(context);
             },
             child: Text(
-              "${provider2.selectedDate.toString().substring(0, 10)}",
+              provider2.selectedDate.toString().substring(0, 10),
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
             ),
           ),
           //const Spacer(), we had to remove it so we can use MainAxisSize.min

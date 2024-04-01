@@ -6,7 +6,7 @@ import 'package:to_do_c10_monday/my_theme.dart';
 import 'package:to_do_c10_monday/providers/selected_date_provider.dart';
 
 class TasksTab extends StatefulWidget {
-  TasksTab({super.key});
+  const TasksTab({super.key});
 
   @override
   State<TasksTab> createState() => _TasksTabState();
@@ -37,7 +37,7 @@ class _TasksTabState extends State<TasksTab> {
             // });
           },
         ),
-        MyListView(),
+        const MyListView(),
       ],
     );
   }

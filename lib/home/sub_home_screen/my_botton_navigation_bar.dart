@@ -9,7 +9,7 @@ class MyBottonNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<HomeScreenProvider>(context);
     return BottomAppBar(
-      shape: CircularNotchedRectangle(),
+      shape: const CircularNotchedRectangle(),
       notchMargin: 12,
       height: 83,
       child: BottomNavigationBar(
