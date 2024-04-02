@@ -14,8 +14,10 @@ class TaskModel {
       required this.date,
       this.isDone = false});
 
-  TaskModel.fromJson(Map<String, dynamic> json) //Named Constructor
+  TaskModel.fromJson(Map<String, dynamic> json)
       : this(
+          //Named Constructor
+          //This function take map and returns model
           title: json['title'],
           description: json['description'],
           date: json['date'],
