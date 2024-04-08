@@ -4,7 +4,7 @@ import '../home/tabs/tasks_tab.dart';
 
 class HomeScreenProvider extends ChangeNotifier {
   int index = 0;
-  List<Widget> tabs = [const TasksTab(), const SettingsTab()];
+  List<Widget> tabs = [TasksTab(), SettingsTab()];
 
   void changeIndex(int value) {
     index = value;
