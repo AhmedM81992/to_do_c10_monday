@@ -14,10 +14,7 @@ migrate_working_dir/
 # ... existing content ...
 
 # Ignore .env file
-keys.env
-**/android/app/google-services.json
-**/ios/Runner/GoogleService-Info.plist
-**security
+
 
 **keys.env
 **/android/app/google-services.json
