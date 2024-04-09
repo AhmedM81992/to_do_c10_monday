@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_c10_monday/auth/login.dart';
-import 'package:to_do_c10_monday/auth/register.dart';
+import 'package:to_do_c10_monday/auth/login/login.dart';
+import 'package:to_do_c10_monday/auth/register/register.dart';
 import 'package:to_do_c10_monday/my_theme.dart';
 
 class AuthScreen extends StatelessWidget {

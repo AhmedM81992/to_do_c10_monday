@@ -109,61 +109,61 @@ class FireBaseFunctions {
 
   // =========================================================================================================================
 
-  static void createUserAccount({
-    required String email,
-    required String password,
-    required String userName,
-    required String phone,
-    required Function onSuccess,
-    required Function onError,
-  }) async {
-    try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      //credential.user?.sendEmailVerification(); //we use it later to Verify emails.
-      UserModel user = UserModel(
-          id: credential.user?.uid ?? "",
-          email: email,
-          userName: userName,
-          phone: phone);
-      addUser(user).then((value) {
-        onSuccess();
-        /*or
-        * await addUser(user);
-        * onSuccess();
-        * */
-      });
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        onError(e.message);
-      } else if (e.code == 'email-already-in-use') {
-        onError(e.message);
-      }
-      onError(e.message);
-    } catch (e) {
-      onError("Something Went Wrong!");
-    }
-  }
+  // static void createUserAccount({
+  //   required String email,
+  //   required String password,
+  //   required String userName,
+  //   required String phone,
+  //   required Function onSuccess,
+  //   required Function onError,
+  // }) async {
+  //   try {
+  //     final credential =
+  //         await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     //credential.user?.sendEmailVerification(); //we use it later to Verify emails.
+  //     UserModel user = UserModel(
+  //         id: credential.user?.uid ?? "",
+  //         email: email,
+  //         userName: userName,
+  //         phone: phone);
+  //     addUser(user).then((value) {
+  //       onSuccess();
+  //       /*or
+  //       * await addUser(user);
+  //       * onSuccess();
+  //       * */
+  //     });
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == 'weak-password') {
+  //       onError(e.message);
+  //     } else if (e.code == 'email-already-in-use') {
+  //       onError(e.message);
+  //     }
+  //     onError(e.message);
+  //   } catch (e) {
+  //     onError("Something Went Wrong!");
+  //   }
+  // }
 
   // =========================================================================================================================
 
-  static login(String password, String email, Function onSuccess,
-      Function onError) async {
-    try {
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-      if (credential.user!.emailVerified || !credential.user!.emailVerified) {
-        onSuccess();
-      } else {
-        onError("Please Verify Your Email!");
-      }
-    } on FirebaseAuthException catch (e) {
-      onError("Wrong Email or Password");
-    }
-  }
+  // static login(String password, String email, Function onSuccess,
+  //     Function onError) async {
+  //   try {
+  //     final credential = await FirebaseAuth.instance
+  //         .signInWithEmailAndPassword(email: email, password: password);
+  //     if (credential.user!.emailVerified || !credential.user!.emailVerified) {
+  //       onSuccess();
+  //     } else {
+  //       onError("Please Verify Your Email!");
+  //     }
+  //   } on FirebaseAuthException catch (e) {
+  //     onError("Wrong Email or Password");
+  //   }
+  // }
 
   // =========================================================================================================================
 
